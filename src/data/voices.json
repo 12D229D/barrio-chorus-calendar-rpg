@@ -1,0 +1,59 @@
+{
+  "voices": [
+    {
+      "id": "v_latido_urbano",
+      "name": "Latido Urbano",
+      "timbre": "Bajo",
+      "cost": 15,
+      "potency": 26,
+      "effect": "damage",
+      "bonusTimbre": "Tenor",
+      "synergyDesc": "Si la voz previa fue Tenor, aturde la intención disonante por 1 compás.",
+      "desc": "Golpe de graves resonantes que cimbra el suelo del Coro y quiebra el pesimismo."
+    },
+    {
+      "id": "v_eco_esquina",
+      "name": "Eco de la Esquina",
+      "timbre": "Tenor",
+      "cost": 20,
+      "potency": 34,
+      "effect": "damage",
+      "bonusTimbre": "Soprano",
+      "synergyDesc": "Si la voz previa fue Soprano, incrementa el daño un +35% por resonancia.",
+      "desc": "Armónicos ágiles y punzantes como campanas de iglesia entre la llovizna."
+    },
+    {
+      "id": "v_canto_matinal",
+      "name": "Canto Matinal",
+      "timbre": "Soprano",
+      "cost": 18,
+      "potency": 32,
+      "effect": "heal",
+      "bonusTimbre": "Bajo",
+      "synergyDesc": "Si la voz previa fue Bajo, otorga Escudo de Esperanza igual a 15 HP.",
+      "desc": "Melodía limpia con fragancia de café y pan fresco que remienda el alma herida."
+    },
+    {
+      "id": "v_polifonía_barrial",
+      "name": "Polifonía Barrial",
+      "timbre": "Tenor",
+      "cost": 36,
+      "potency": 58,
+      "effect": "damage",
+      "bonusTimbre": "Soprano",
+      "synergyDesc": "Armonía mayor: si hay sinergia, restablece 15 puntos de Armonía de equipo.",
+      "desc": "El ensamble completo de las tres voces disipa las mentiras del Coro de un solo acorde."
+    },
+    {
+      "id": "v_serenata_andén",
+      "name": "Serenata del Andén",
+      "timbre": "Bajo",
+      "cost": 22,
+      "potency": 20,
+      "effect": "shield",
+      "bonusTimbre": "Soprano",
+      "synergyDesc": "Genera una barrera acústica de 40 puntos que absorbe reproches.",
+      "desc": "Acordes pausados en el porche que devuelven la calma a los vecinos intranquilos."
+    }
+  ]
+}

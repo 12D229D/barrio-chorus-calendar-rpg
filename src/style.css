@@ -1,0 +1,788 @@
+/* Barrio Chorus — Sistema de Estilos Acuarela Urbana Nocturna
+   Paleta HSL: Púrpuras nocturnos, amarillos cálidos de farola, cianes de ensueño coral
+   Glassmorphism sutil, tipografía Google Fonts (Outfit, Inter, Syne) */
+
+:root {
+  /* Tokens de Color HSL */
+  --bg-dark: hsl(260, 32%, 10%);
+  --bg-surface: hsl(260, 25%, 15%);
+  --bg-surface-elevated: hsl(260, 22%, 20%);
+  --glass-border: hsla(260, 30%, 65%, 0.22);
+  --glass-bg: hsla(260, 25%, 14%, 0.72);
+
+  /* Acentos de Iluminación Barrial */
+  --streetlamp-amber: hsl(42, 95%, 55%);
+  --streetlamp-glow: hsla(42, 95%, 55%, 0.35);
+  --choral-cyan: hsl(175, 85%, 50%);
+  --choral-cyan-glow: hsla(175, 85%, 50%, 0.3);
+  --neon-magenta: hsl(315, 80%, 60%);
+  --dissonance-crimson: hsl(350, 85%, 55%);
+
+  /* Voces Corales */
+  --soprano-color: hsl(45, 92%, 58%);
+  --tenor-color: hsl(175, 80%, 52%);
+  --bass-color: hsl(215, 85%, 62%);
+
+  /* Texto */
+  --text-main: hsl(260, 15%, 96%);
+  --text-muted: hsl(260, 12%, 70%);
+  --text-dim: hsl(260, 10%, 50%);
+
+  /* Fuentes */
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-ui: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Geometría y Sombras */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --shadow-ambient: 0 10px 30px hsla(260, 40%, 4%, 0.6);
+  --shadow-glow: 0 0 25px var(--streetlamp-glow);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: 
+    radial-gradient(circle at 15% 20%, hsla(270, 45%, 18%, 0.7) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, hsla(175, 60%, 14%, 0.5) 0%, transparent 50%),
+    linear-gradient(180deg, hsl(260, 32%, 8%) 0%, hsl(260, 30%, 12%) 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Header & Banner Superior */
+.app-header {
+  background: hsla(260, 30%, 12%, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 0 10px var(--streetlamp-amber));
+}
+
+h1.game-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #fff 30%, var(--streetlamp-amber) 70%, var(--choral-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: var(--font-ui);
+}
+
+.header-status {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.status-badge {
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-badge.calendar-badge {
+  border-color: var(--streetlamp-amber);
+  color: var(--streetlamp-amber);
+  font-weight: 600;
+}
+
+/* Layout Principal */
+.app-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr 340px;
+  gap: 1.5rem;
+  max-width: 1440px;
+  margin: 1.5rem auto;
+  padding: 0 1.5rem;
+  flex: 1;
+  width: 100%;
+}
+
+@media (max-width: 1100px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Paneles Glassmorphism */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-ambient);
+}
+
+/* Columna Izquierda: Smartphone & Diegetic Nav */
+.diegetic-phone-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.diegetic-nav-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 0.35rem;
+  gap: 0.25rem;
+}
+
+.d-nav-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 0.6rem 0.2rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  transition: all 0.2s ease;
+}
+
+.d-nav-btn:hover {
+  background: hsla(260, 20%, 30%, 0.4);
+  color: #fff;
+}
+
+.d-nav-btn.active {
+  background: linear-gradient(135deg, hsla(42, 95%, 55%, 0.25), hsla(175, 85%, 50%, 0.25));
+  color: #fff;
+  border: 1px solid var(--streetlamp-amber);
+  box-shadow: 0 0 12px var(--streetlamp-glow);
+}
+
+.d-nav-btn .icon {
+  font-size: 1.2rem;
+}
+
+/* Phone Frame */
+.phone-frame {
+  border: 2px solid hsla(260, 25%, 35%, 0.6);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px hsla(260, 50%, 4%, 0.8), 0 0 0 4px hsla(260, 30%, 20%, 0.5);
+  background: hsl(260, 30%, 11%);
+  display: flex;
+  flex-direction: column;
+  min-height: 480px;
+}
+
+.phone-top-bar {
+  background: hsl(260, 28%, 14%);
+  padding: 0.5rem 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  font-family: var(--font-ui);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.phone-body {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.phone-contacts-tab {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding-bottom: 0.4rem;
+}
+
+.contact-pill-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  border-radius: var(--radius-full);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+  font-family: var(--font-ui);
+}
+
+.contact-pill-btn.active {
+  background: var(--streetlamp-amber);
+  color: #1a1025;
+  font-weight: 700;
+  border-color: #fff;
+}
+
+.phone-chat-messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 0.3rem;
+}
+
+.chat-bubble {
+  max-width: 88%;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  position: relative;
+}
+
+.bubble-neighbor {
+  align-self: flex-start;
+  background: hsl(260, 25%, 20%);
+  color: var(--text-main);
+  border-bottom-left-radius: 2px;
+  border: 1px solid var(--glass-border);
+}
+
+.bubble-player {
+  align-self: flex-end;
+  background: hsl(175, 75%, 25%);
+  color: #fff;
+  border-bottom-right-radius: 2px;
+}
+
+.bubble-time {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  text-align: right;
+  margin-top: 0.3rem;
+}
+
+/* Columna Central: Escena Principal / Teatro del Juego */
+.main-stage-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.stage-card {
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.stage-banner {
+  background: linear-gradient(90deg, hsla(270, 40%, 25%, 0.6), hsla(175, 60%, 20%, 0.6));
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.stage-banner h2 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+.stage-banner .badge {
+  font-size: 0.75rem;
+  background: hsla(0, 0%, 0%, 0.4);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-full);
+  color: var(--streetlamp-amber);
+}
+
+/* Grid de Trabajos Diurnos */
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.job-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.job-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--streetlamp-amber);
+  box-shadow: 0 8px 20px hsla(42, 95%, 55%, 0.15);
+}
+
+.job-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.job-icon {
+  font-size: 1.6rem;
+}
+
+.job-title {
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.job-location {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.job-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  flex: 1;
+}
+
+.job-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.job-payout {
+  color: hsl(140, 75%, 55%);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* Botones Estilizados */
+.btn-action, .primary-btn {
+  background: linear-gradient(135deg, var(--streetlamp-amber), hsl(30, 95%, 50%));
+  color: #120a1c;
+  border: none;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px hsla(42, 95%, 50%, 0.3);
+}
+
+.btn-action:hover, .primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px hsla(42, 95%, 50%, 0.5);
+  filter: brightness(1.1);
+}
+
+.secondary-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondary-btn:hover {
+  background: hsla(260, 20%, 30%, 0.5);
+  border-color: var(--choral-cyan);
+}
+
+/* Diálogo y Vínculos Sociales */
+.dialogue-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-left: 4px solid var(--choral-cyan);
+}
+
+.dialogue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.speaker-badge {
+  background: hsl(260, 30%, 25%);
+  border: 1px solid var(--choral-cyan);
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--choral-cyan);
+}
+
+.dialogue-title {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.dialogue-speech {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #fff;
+  font-style: italic;
+  padding: 0.5rem 0;
+}
+
+.dialogue-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.dialogue-option-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-main);
+}
+
+.dialogue-option-btn.ready:hover {
+  border-color: var(--streetlamp-amber);
+  background: hsla(42, 95%, 55%, 0.12);
+  transform: translateX(4px);
+}
+
+.dialogue-option-btn.locked {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: grayscale(0.8);
+}
+
+.opt-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-ui);
+  color: var(--streetlamp-amber);
+}
+
+.opt-text {
+  font-size: 0.9rem;
+}
+
+.dialogue-rewards {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.reward-pill {
+  background: hsla(140, 75%, 35%, 0.3);
+  border: 1px solid hsl(140, 75%, 45%);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  color: #72f7a0;
+  font-family: var(--font-ui);
+}
+
+.reward-pill.stat {
+  background: hsla(42, 90%, 35%, 0.3);
+  border-color: var(--streetlamp-amber);
+  color: var(--streetlamp-amber);
+}
+
+/* Combate Coral: Arena y Dial */
+.combat-arena {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.combat-top-row {
+  display: grid;
+  grid-template-columns: 1fr 180px 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.combatant-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.combatant-card.boss {
+  border-color: var(--dissonance-crimson);
+  box-shadow: 0 0 20px hsla(350, 85%, 55%, 0.25);
+}
+
+.gauge-bar-wrap {
+  width: 100%;
+  height: 10px;
+  background: hsla(0, 0%, 0%, 0.4);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid hsla(260, 20%, 30%, 0.5);
+}
+
+.gauge-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.gauge-hp {
+  background: linear-gradient(90deg, hsl(350, 80%, 55%), hsl(140, 75%, 50%));
+}
+
+.gauge-harmonia {
+  background: linear-gradient(90deg, hsl(210, 80%, 55%), var(--choral-cyan));
+}
+
+/* Dial de Tempo Central */
+.tempo-dial-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.tempo-track {
+  width: 100%;
+  height: 14px;
+  background: hsl(260, 30%, 8%);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.tempo-needle {
+  width: 16px;
+  height: 16px;
+  background: var(--streetlamp-amber);
+  border-radius: 50%;
+  position: absolute;
+  top: -1px;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px var(--streetlamp-amber);
+  transition: left 0.3s ease;
+}
+
+.tempo-label {
+  font-size: 0.75rem;
+  font-family: var(--font-ui);
+  color: var(--text-muted);
+}
+
+/* Diapasón de Voces en Combate */
+.voices-action-tray {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+
+.voice-card-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  color: var(--text-main);
+  position: relative;
+}
+
+.voice-card-btn.soprano { border-left: 4px solid var(--soprano-color); }
+.voice-card-btn.tenor { border-left: 4px solid var(--tenor-color); }
+.voice-card-btn.bass { border-left: 4px solid var(--bass-color); }
+
+.voice-card-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px hsla(260, 40%, 4%, 0.6);
+  border-color: #fff;
+}
+
+.voice-card-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.voice-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.voice-name {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.voice-timbre-tag {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: var(--radius-full);
+  background: hsla(0, 0%, 0%, 0.3);
+}
+
+.voice-synergy-tip {
+  font-size: 0.72rem;
+  color: var(--streetlamp-amber);
+  line-height: 1.3;
+}
+
+/* Log de Combate */
+.combat-log-box {
+  background: hsla(260, 35%, 8%, 0.7);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+  max-height: 120px;
+  overflow-y: auto;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* Columna Derecha: Estadísticas del Protagonista & Estado del Coro */
+.profile-sidebar-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hero-profile-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.stats-meters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.stat-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.2rem;
+}
+
+.stat-val {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--streetlamp-amber);
+}
+
+.stat-name {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* SVG del Grafo Hilos de Barrio */
+.threads-svg {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+}
+
+.thread-pulse-line {
+  animation: pulseLine 3s infinite linear;
+}
+
+@keyframes pulseLine {
+  0% { stroke-dashoffset: 20; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Footer Comunal */
+.app-footer {
+  border-top: 1px solid var(--glass-border);
+  background: hsla(260, 30%, 10%, 0.9);
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}

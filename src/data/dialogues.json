@@ -1,0 +1,184 @@
+{
+  "dialogues": {
+    "mateo": [
+      {
+        "id": "mat_d1",
+        "minLevel": 1,
+        "title": "Afinando en la tarde",
+        "speaker": "Mateo Valderrama",
+        "text": "Oye, ¿escuchas ese zumbido metálico cuando cae el sol? No es el tráfico ni la feria... se siente como si el barrio entero contuviera el aliento. Mi bajo suena apagado hoy.",
+        "options": [
+          {
+            "label": "Toca una línea de bajo firme, la gente necesita escuchar estabilidad.",
+            "statRequired": "courage",
+            "statVal": 10,
+            "gainAffinity": 15,
+            "gainStat": { "courage": 2 },
+            "response": "Tienes razón... un buen bajo es el cimiento de cualquier canción comunitaria. Gracias, compa."
+          },
+          {
+            "label": "Doña Carmen me dijo que tus canciones la ayudan a amasar temprano.",
+            "statRequired": "empathy",
+            "statVal": 10,
+            "gainAffinity": 20,
+            "gainStat": { "empathy": 2 },
+            "response": "¿En serio dijo eso? A veces siento que sólo hago ruido. Eso me llena el pecho de fuerza."
+          },
+          {
+            "label": "Sígueme el compás, afinemos juntos.",
+            "statRequired": "rhythm",
+            "statVal": 10,
+            "gainAffinity": 15,
+            "gainStat": { "rhythm": 2 },
+            "response": "¡Eso es! Sincronicemos los pulsos. Siento cómo vibra el andén bajo nuestros pies."
+          }
+        ]
+      },
+      {
+        "id": "mat_d2",
+        "minLevel": 2,
+        "title": "Las sombras del rumor",
+        "speaker": "Mateo Valderrama",
+        "text": "Anoche tuve una pesadilla. Un eco gigante se tragaba la música de la feria y convertía las voces en reproches. ¿Tú también sientes esa pesadez nocturna?",
+        "options": [
+          {
+            "label": "No es una pesadilla, Mateo. Es el 'Coro'. Vamos a enfrentarlo juntos.",
+            "statRequired": "courage",
+            "statVal": 15,
+            "gainAffinity": 25,
+            "gainStat": { "courage": 3 },
+            "response": "Si tú estás dispuesto a entrar a esa oscuridad, mi bajo irá contigo hasta la última nota."
+          },
+          {
+            "label": "El rumor crece cuando nadie canta la verdad. Escuchémonos más.",
+            "statRequired": "empathy",
+            "statVal": 14,
+            "gainAffinity": 25,
+            "gainStat": { "empathy": 3 },
+            "response": "Verdad pura. Voy a escribir un estribillo que una a todos en vez de separarnos."
+          }
+        ]
+      }
+    ],
+    "carmen": [
+      {
+        "id": "car_d1",
+        "minLevel": 1,
+        "title": "Amasando voluntades",
+        "speaker": "Doña Carmen Salazar",
+        "text": "Ven, mijo, tómate un café recién colado. La levadura hoy está perezosa, y cuando la masa no sube es porque el vecindario anda cargado de desconfianzas.",
+        "options": [
+          {
+            "label": "Déjeme ayudarle a amasar con energía, Doña Carmen.",
+            "statRequired": "courage",
+            "statVal": 10,
+            "gainAffinity": 15,
+            "gainStat": { "courage": 2 },
+            "response": "¡Válgame Dios, qué manos tan firmes! Esta masa sí que agarró cuerpo y calor."
+          },
+          {
+            "label": "El barrio siempre encuentra consuelo en su puerta, doña.",
+            "statRequired": "empathy",
+            "statVal": 10,
+            "gainAffinity": 20,
+            "gainStat": { "empathy": 2 },
+            "response": "Ay, corazón... tus palabras endulzan más que el anís. Somos una familia extendida."
+          },
+          {
+            "label": "La música de Mateo y el sonido de sus bandejas marcan el compás del día.",
+            "statRequired": "rhythm",
+            "statVal": 10,
+            "gainAffinity": 18,
+            "gainStat": { "rhythm": 2 },
+            "response": "Jajaja, ¡es cierto! Su bajo marca el tiempo y mis hornos el estribillo de cada mañana."
+          }
+        ]
+      },
+      {
+        "id": "car_d2",
+        "minLevel": 2,
+        "title": "La sombra del desalojo y los chismes",
+        "speaker": "Doña Carmen Salazar",
+        "text": "Están corriendo rumores feos por la feria... dicen que unos inversionistas quieren cerrar los talleres y la panadería para poner torres de lujo. La gente se mira con rencor.",
+        "options": [
+          {
+            "label": "No permitiremos que silencien la memoria del barrio.",
+            "statRequired": "courage",
+            "statVal": 14,
+            "gainAffinity": 25,
+            "gainStat": { "courage": 3 },
+            "response": "Tienes el corazón valiente de tus abuelos. Me das el aliento que me faltaba."
+          },
+          {
+            "label": "Hagamos un banquete comunal; la unión disuelve cualquier mentira.",
+            "statRequired": "empathy",
+            "statVal": 15,
+            "gainAffinity": 25,
+            "gainStat": { "empathy": 3 },
+            "response": "¡Eso es! Al pan y a la sonrisa franca no hay sombra que les gane."
+          }
+        ]
+      }
+    ],
+    "sofia": [
+      {
+        "id": "sof_d1",
+        "minLevel": 1,
+        "title": "Cazadora de frecuencias",
+        "speaker": "Sofía Restrepo",
+        "text": "¿Pudiste oírlo? Grabé el murmullo de la carnicería mezclado con las cuerdas de Mateo. Si lo afinamos a 432 Hz, casi parece el latido de un corazón gigante.",
+        "options": [
+          {
+            "label": "Esa frecuencia conecta directo con el Coro nocturno.",
+            "statRequired": "courage",
+            "statVal": 10,
+            "gainAffinity": 15,
+            "gainStat": { "courage": 2 },
+            "response": "¿Tú también lo percibes de noche? Pensé que estaba alucinando... Qué alivio no estar sola."
+          },
+          {
+            "label": "El barrio respira como un organismo vivo; tú eres su oído sensible.",
+            "statRequired": "empathy",
+            "statVal": 10,
+            "gainAffinity": 20,
+            "gainStat": { "empathy": 2 },
+            "response": "¡Qué poético y certero! Sentir empatía por el sonido es comprender las heridas de todos."
+          },
+          {
+            "label": "Sincronicemos los filtros para amplificar los tonos limpios.",
+            "statRequired": "rhythm",
+            "statVal": 10,
+            "gainAffinity": 18,
+            "gainStat": { "rhythm": 2 },
+            "response": "¡Exacto! Ajustemos el tempo a 120 bpm. La claridad armónica es impecable."
+          }
+        ]
+      },
+      {
+        "id": "sof_d2",
+        "minLevel": 2,
+        "title": "El mapa de disonancias",
+        "speaker": "Sofía Restrepo",
+        "text": "Tengo un espectrograma del callejón del fondo. Las ondas son pura disonancia: celos, mentiras y sospechas. Hay una entidad alimentándose de eso: 'El Rumor'.",
+        "options": [
+          {
+            "label": "Confrontaremos al Rumor con armonía pura este domingo.",
+            "statRequired": "courage",
+            "statVal": 15,
+            "gainAffinity": 25,
+            "gainStat": { "courage": 3 },
+            "response": "Te prepararé un parche de ecualización especial para neutralizar sus chillidos."
+          },
+          {
+            "label": "Transformaremos esa disonancia en un acorde sanador.",
+            "statRequired": "rhythm",
+            "statVal": 15,
+            "gainAffinity": 25,
+            "gainStat": { "rhythm": 3 },
+            "response": "¡Esa es la clave! No se trata de callarlo, sino de afinarlo hacia la luz."
+          }
+        ]
+      }
+    ]
+  }
+}

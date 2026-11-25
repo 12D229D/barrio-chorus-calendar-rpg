@@ -1,0 +1,64 @@
+{
+  "characters": [
+    {
+      "id": "mateo",
+      "name": "Mateo Valderrama",
+      "role": "Músico Callejero & Bajista",
+      "location": "Plazoleta de los Guayacanes",
+      "timbre": "Bajo",
+      "description": "Joven talentoso pero agobiado por las deudas familiares. Toca un bajo acústico desvencijado al caer la tarde.",
+      "avatar": "🎸",
+      "color": "hsl(215, 75%, 60%)",
+      "socialThread": {
+        "connectedTo": ["carmen"],
+        "connectionDesc": "Doña Carmen le fía panes y le recuerda que su música alegra la cuadra.",
+        "synergyBonus": "Potencia de Voz Bajo +15%"
+      },
+      "ranks": [
+        { "level": 1, "title": "Acordes Tímidos", "perk": "Desbloquea 'Pulso de Bajo'", "minAffinity": 0 },
+        { "level": 2, "title": "Bajo El Farol", "perk": "Resistencia a la Ansiedad en el Coro +10%", "minAffinity": 40 },
+        { "level": 3, "title": "Hermano del Andén", "perk": "Técnica Coral: 'Cuerda Comunal' (Interrumpe al enemigo)", "minAffinity": 100 }
+      ]
+    },
+    {
+      "id": "carmen",
+      "name": "Doña Carmen Salazar",
+      "role": "Panadera y Líder Barrial",
+      "location": "Panadería 'La Espiga Dorada'",
+      "timbre": "Soprano",
+      "description": "Lleva 40 años alimentando al barrio. Conoce todos los secretos y temores que flotan en el aire nocturno.",
+      "avatar": "🥖",
+      "color": "hsl(42, 90%, 55%)",
+      "socialThread": {
+        "connectedTo": ["mateo", "sofia"],
+        "connectionDesc": "Centro gravitacional del barrio; nutre a Mateo y aconseja a Sofía sobre el sentido de comunidad.",
+        "synergyBonus": "Efectividad de Sanación Soprano +25%"
+      },
+      "ranks": [
+        { "level": 1, "title": "Miga de Confianza", "perk": "Desbloquea 'Canto Matinal'", "minAffinity": 0 },
+        { "level": 2, "title": "Masa Madre", "perk": "Regenera 10 Armonía al entrar a cada piso del Coro", "minAffinity": 45 },
+        { "level": 3, "title": "Matriarca del Coro", "perk": "Técnica Coral: 'Bendición de Espiga' (Escudo protector total)", "minAffinity": 110 }
+      ]
+    },
+    {
+      "id": "sofia",
+      "name": "Sofía Restrepo",
+      "role": "Estudiante de Sonido & Tejedora",
+      "location": "Taller 'Ondas & Hebras'",
+      "timbre": "Tenor",
+      "description": "Obsesionada con grabar los paisajes sonoros del barrio y transformar rumores en melodías armónicas.",
+      "avatar": "🎧",
+      "color": "hsl(175, 75%, 50%)",
+      "socialThread": {
+        "connectedTo": ["carmen"],
+        "connectionDesc": "Aprende de Carmen a escuchar los silencios de la gente.",
+        "synergyBonus": "Tempo y velocidad de turno +20%"
+      },
+      "ranks": [
+        { "level": 1, "title": "Frecuencia Compartida", "perk": "Desbloquea 'Eco de la Esquina'", "minAffinity": 0 },
+        { "level": 2, "title": "Sintonía Fina", "perk": "Permite anticipar los movimientos del Jefe en el dial", "minAffinity": 45 },
+        { "level": 3, "title": "Tejedora de Armonías", "perk": "Técnica Coral: 'Onda Resonante' (Ataque crítico en cadena)", "minAffinity": 110 }
+      ]
+    }
+  ]
+}

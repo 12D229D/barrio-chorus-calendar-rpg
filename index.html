@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barrio Chorus — RPG Calendario y Vida Social</title>
+  
+  <!-- Tipografías Google Fonts de alta legibilidad y estilo: Syne, Outfit e Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- Hoja de estilos de acuarela urbana nocturna -->
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+
+  <!-- Encabezado Principal y Estado de Calendario Semanal -->
+  <header class="app-header">
+    <div class="brand-wrapper">
+      <span class="logo-icon" aria-hidden="true">🎺</span>
+      <div>
+        <h1 class="game-title">Barrio Chorus</h1>
+        <p class="tagline">RPG de Calendario, Hilos Comunitarios y Armonía Coral</p>
+      </div>
+    </div>
+
+    <div class="header-status">
+      <div class="status-badge calendar-badge" id="currentDayBadge">
+        <span aria-hidden="true">📅</span>
+        <span id="currentDayDisplay">Día 1: Lunes</span>
+      </div>
+      <div class="status-badge" id="currentTimeSlotBadge">
+        <span id="currentTimeSlotDisplay">☀️ Mañana (Trabajos Comunitarios)</span>
+      </div>
+      <button id="advanceTimeBtn" class="btn-action" title="Avanzar manualmente a la siguiente franja del día">
+        Avanzar Franja ⏩
+      </button>
+      <button id="resetGameBtn" class="secondary-btn" title="Reiniciar partida">
+        Reiniciar 🔄
+      </button>
+    </div>
+  </header>
+
+  <!-- Contenedor Maestro de 3 Columnas Diegéticas -->
+  <main class="app-layout">
+    
+    <!-- Columna Izquierda: Dispositivo Móvil Diegético (Barrio•Phone) & Navegación -->
+    <aside class="diegetic-phone-col" aria-label="Menú y Teléfono Diegético">
+      <nav id="diegeticNav" aria-label="Pestañas del Smartphone"></nav>
+      
+      <div class="phone-frame">
+        <div class="phone-top-bar">
+          <span class="phone-time">18:00</span>
+          <span class="phone-brand">BARRIO•PHONE 5G</span>
+          <span class="phone-battery">🔋 92%</span>
+        </div>
+        <div id="phoneContentArea" class="phone-body">
+          <!-- Renderizado dinámico de la pestaña activa (Agenda, Mensajes, Hilos, Diapasón) -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- Columna Central: Escenario Activo (Vida Diurna / Encuentros / Coro Nocturno / Combate) -->
+    <section class="main-stage-col" aria-label="Escenario Principal del Juego">
+      <div id="mainStage">
+        <!-- Renderizado dinámico según la máquina de estados -->
+      </div>
+    </section>
+
+    <!-- Columna Derecha: Perfil del Protagonista, Atributos Sociales y Red de Hilos -->
+    <aside class="profile-sidebar-col" aria-label="Estadísticas y Grafo Social">
+      
+      <div class="hero-profile-card glass-panel">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h3 style="font-family: var(--font-display); font-size: 1.1rem; color: #fff;">Protagonista</h3>
+          <span style="font-size: 0.8rem; color: var(--choral-cyan); font-weight: 700;">Voz Comunal</span>
+        </div>
+
+        <!-- Vitalidad y Armonía -->
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 0.2rem;">
+            <span>Vitalidad (HP)</span>
+            <span id="sidebarHpText">100/100</span>
+          </div>
+          <div class="gauge-bar-wrap">
+            <div id="sidebarHpBar" class="gauge-fill gauge-hp" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--choral-cyan); margin-bottom: 0.2rem;">
+            <span>Armonía Coral</span>
+            <span id="sidebarHarText">60/60</span>
+          </div>
+          <div class="gauge-bar-wrap">
+            <div id="sidebarHarBar" class="gauge-fill gauge-harmonia" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <!-- Recursos Diarios -->
+        <div style="display: flex; justify-content: space-between; background: var(--bg-surface); padding: 0.6rem; border-radius: var(--radius-sm); border: 1px solid var(--glass-border); font-size: 0.8rem;">
+          <div>
+            <div style="color: var(--text-dim); font-size: 0.7rem;">Dinero en Bolsillo</div>
+            <div id="heroMoneyDisplay" style="color: #72f7a0; font-weight: 700;">$25,000 COP</div>
+          </div>
+          <div>
+            <div style="color: var(--text-dim); font-size: 0.7rem;">Esencia de Voz</div>
+            <div id="heroEssenceDisplay" style="color: var(--streetlamp-amber); font-weight: 700;">50 pts</div>
+          </div>
+        </div>
+
+        <!-- Atributos de Personalidad / Virtudes -->
+        <div>
+          <h4 style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; margin-bottom: 0.4rem;">Virtudes Barriales</h4>
+          <div class="stats-meters-grid">
+            <div class="stat-box">
+              <div class="stat-val" id="statCourageVal">10</div>
+              <div class="stat-name">Coraje</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val" id="statEmpathyVal">10</div>
+              <div class="stat-name">Empatía</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val" id="statRhythmVal">10</div>
+              <div class="stat-name">Ritmo</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Red en Vivo: Grafo Hilos de Barrio -->
+      <div class="glass-panel" style="display: flex; flex-direction: column; gap: 0.6rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h3 style="font-family: var(--font-ui); font-size: 0.95rem; color: var(--choral-cyan);">🧶 Hilos de Barrio</h3>
+          <span style="font-size: 0.7rem; color: var(--text-dim);">Red de Vecinos</span>
+        </div>
+        <div id="sidebarThreadsSvg" style="background: hsl(260, 30%, 11%); border-radius: var(--radius-sm); border: 1px solid var(--glass-border); overflow: hidden;">
+          <!-- SVG interactivo de la red de relaciones generado por threadsGraph.js -->
+        </div>
+        <p style="font-size: 0.72rem; color: var(--text-dim); line-height: 1.3;">
+          Fortalecer el vínculo con Mateo, Doña Carmen o Sofía propaga resonancia al resto de la comunidad.
+        </p>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <!-- Pie de Página Institucional -->
+  <footer class="app-footer">
+    <p>Barrio Chorus — RPG de Calendario y Armonía Coral v1.0.0 | Portafolio Codex</p>
+  </footer>
+
+  <!-- Carga del Módulo Principal -->
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
